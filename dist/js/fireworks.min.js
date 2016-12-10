@@ -1,8 +1,9 @@
 /**
  * Created by chengwb on 2016/12/1.
- * 源码网上例子，优化修改
+ * 源码网上例子，优化修改，引入three.js是考虑后期实现3d效果，目前是2d
  */
 (function (window, $, THREE, undefined) {
+    //后期考虑配置，暂时还没使用
     var options = {
         background: {
             color: '#000',
