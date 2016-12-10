@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, dd, dl, dt, li, ol, ul,input,select,button,textarea { padding:0; margin:0; border:none;}
+input,button,select,textarea,a,img{outline:none; }/*去掉超链接或按钮点击时出现的虚线框黄色边框*/
+::-moz-focus-inner{border:0px;}/*火狐的私有属性去掉点击时边框*/
+body,html{ width:100%; font-family:"Microsoft YaHei","Arial", "SimSun";}
+ul, ul li, ol li, li {	list-style:none;}
+a, img, input, textarea {border:none;}
+table {	border-collapse: collapse;border-spacing:0;}
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: ".";clear: both;height: 0;}
+* html .clearfix {zoom: 1;}
+*:first-child + html .clearfix {zoom: 1;}
+.fl {	float:left;}
+.fr {	float:right;}
+.none{	display:none;}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin rect($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin roundRect($width, $height, $radius) {
+  @include rect($width, $height);
+  @include border-radius($radius);
+}
+
+.canvas_area {
+  position: relative;
+  @include rect(800px, 500px);
+}
+
+
