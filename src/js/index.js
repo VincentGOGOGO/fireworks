@@ -132,7 +132,7 @@
             context.restore();
         },
         boom: function () {//爆炸
-            var fragNum = getRandom(500, 1000);//碎片个数
+            var fragNum = getRandom(100, 300);//碎片个数
             var style = getRandom(0, 10) >= 5 ? 'single' : 'multicolor';//颜色风格，单色还是彩色
             var color;
             if (style === 'single') {
@@ -143,7 +143,7 @@
                 }
             }
 
-            var range = parseInt(getRandom(100, 250));//爆炸范围
+            var range = parseInt(getRandom(50, 130));//爆炸范围
             for (var i = 0; i < fragNum; i++) {
                 if (style === 'multicolor') {
                     color = {
@@ -203,7 +203,7 @@
             this.x = Math.abs(dx) < 0.1 ? this.endX : (this.x + dx * 0.1);
             this.y = Math.abs(dy) < 0.1 ? this.endY : (this.y + dy * 0.1);
 
-            if (dx === 0 && Math.abs(dy) <= 80) {
+            if (Math.abs(dx) <= 3 && Math.abs(dy) <= 5) {
                 this.xMoveEnd = true;//已经运动到终点
 
                 //判断，如果烟花的所有碎片都已经运动到终点则开始让烟花消失
@@ -215,17 +215,17 @@
 
                 //如果烟花开始消失，逐渐减小碎片的半径直到消失
                 if (this.parent.startDisappear) {
-                    this.radius -= 0.05;
-                    if (this.radius <= 0.02) {
+                    this.radius -= 0.1;
+                    if (this.radius <= 0.05) {
                         this.radius = 0;
 
                         this.dead = true;
                     }
                 } else {
-                    this.radius -= 0.01;
-                    if (this.radius <= 0.02) {
-                        this.radius = 0;
-                    }
+                    //this.radius -= 0.01;
+                    //if (this.radius <= 0.02) {
+                    //    this.radius = 0;
+                    //}
                 }
             }
 
@@ -242,7 +242,7 @@
         context.restore();
 
         var newTime = new Date();
-        if (newTime - lastTime > 1000 + (window.innerHeight - 767) / 2) {
+        if (newTime - lastTime > 500) {
             var x = getRandom(canvas.width / 5, canvas.width * 4 / 5);
             var y = getRandom(50, 200);
             var firework = new Fireworks({
