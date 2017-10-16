@@ -75,9 +75,9 @@ gulp.task('browser-sync', ['image', 'js', 'html', 'css'], function () {//注册�
 gulp.task('inject', ['css', 'html', 'js', 'image'], function () {
     var target = gulp.src('./dist/*.html');
     // It's not necessary to read the files (will speed up things), we're only after their paths:
-    var sources = gulp.src(['./dist/js/*.js', './dist/css/**/*.css'], {read: false, relative: true, addPrefix: './'});
+    var sources = gulp.src(['./dist/js/*.js', './dist/css/**/*.css'], {read: false});
 
-    return target.pipe(inject(sources))
+    return target.pipe(inject(sources, {relative: true, addPrefix: '.'}))
         .pipe(gulp.dest('./dist'));
 });
 
