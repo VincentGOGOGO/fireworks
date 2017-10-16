@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="./css/fireworks.min.css">
+    <!-- endinject -->
+
+    <title>过年放烟花</title>
+</head>
+<body onselectstart="return false">
+<canvas id='fireworks' style="background-color:rgba(0,5,24,1)">浏览器不支持canvas</canvas>
+
+<script src="./js/libs/jquery-1.8.3.min.js"></script>
+<script src="./js/libs/three.min.js"></script>
+<!-- inject:js -->
+<script src="./js/fireworks.min.js"></script>
+<!-- endinject -->
+<script>
+    window.onload = function () {
+        fireworks.start();
+    };
+</script>
+</body>
+</html>
